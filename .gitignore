@@ -1,0 +1,11 @@
+*~
+*.elc
+*.pyc
+*#*#
+commit.txt
+__pycache__/
+*.py[cod]
+*$py.class
+dist/
+*.egg-info/
+/.markdown-preview.html
