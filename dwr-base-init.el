@@ -14,10 +14,11 @@
 
 ;; Easy window navigation
 (global-set-key (kbd "M-]") 'ace-window)
+(global-set-key (kbd "C-M-]") 'ace-swap-window)
 
 ;; Setup basic Helm with M-x override
 (require 'helm)
-(helm-mode 1)
+;;(helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Scroll window and keep point

@@ -12,21 +12,39 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
+(setq org-log-done 'time)
 (setq org-agenda-files '("~/gtd/inbox.org"
-                         "~/gtd/gtd.org"
+                         "~/gtd/projects.org"
+			 "~/gtd/area.org"
                          "~/gtd/tickler.org"))
 (setq org-todo-keywords '((sequence "TODO" "WORKING" "WAITING" "|" "DONE" "DELEGATED")))
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
 			       (file+headline "~/gtd/inbox.org" "Tasks")
 			       "* TODO %i%?")
+			      ("p" "Project [inbox]" entry
+			       (file+headline "~/gtd/inbox.org" "Potential Projects")
+			       "* %i%?")
+			      ("r" "Resource" entry
+			       (file+headline "~/gtd/inbox.org" "Resources")
+			       "* %i%?
+			       :PROPERTIES:
+                               :Area:
+			       :Note:
+			       :END:")
 			      ("T" "Tickler" entry
 			       (file+headline "~/gtd/tickler.org" "Tickler")
 			       "* %i%? \n %U")))
 (setq org-outline-path-complete-in-steps nil)
-(setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 3)
+(setq org-refile-targets '(("~/gtd/projects.org" :maxlevel . 2)
+			   ("~/gtd/area.org" :maxlevel . 3)
+			   ("~/gtd/archives.org" :maxlevel . 2)
 			   ("~/gtd/someday.org" :maxlevel . 1)
+			   ("~/gtd/resources.org" :maxlevel . 2)
 			   ("~/gtd/tickler.org" :maxlevel . 2)))
 (setq org-refile-allow-creating-parent-nodes 'confirm)
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path 'file)                  ; Show full paths for refiling
+(setq org-completion-use-ido t)
 
 (setq org-agenda-custom-commands
       '(("o" "At the office" tags-todo "office"
