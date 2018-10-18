@@ -11,10 +11,13 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+(global-set-key (kbd "C-c C-.") 'org-time-stamp-inactive)
+
 
 (setq org-log-done 'time)
 (setq org-agenda-files '("~/gtd/inbox.org"
-                         "~/gtd/projects.org"
+                         "~/gtd/prj-work.org"
+			 "~/gtd/prj-personal.org"
 			 "~/gtd/area.org"
                          "~/gtd/tickler.org"))
 (setq org-todo-keywords '((sequence "TODO" "WORKING" "WAITING" "|" "DONE" "DELEGATED")))
@@ -35,7 +38,8 @@
 			       (file+headline "~/gtd/tickler.org" "Tickler")
 			       "* %i%? \n %U")))
 (setq org-outline-path-complete-in-steps nil)
-(setq org-refile-targets '(("~/gtd/projects.org" :maxlevel . 2)
+(setq org-refile-targets '(("~/gtd/prj-work.org" :maxlevel . 2)
+			   ("~/gtd/prj-personal.org" :maxlevel . 2)
 			   ("~/gtd/area.org" :maxlevel . 3)
 			   ("~/gtd/archives.org" :maxlevel . 2)
 			   ("~/gtd/someday.org" :maxlevel . 1)
@@ -72,3 +76,14 @@
   (or (string= "TODO" (org-get-todo-state))
       (string= "WORKING" (org-get-todo-state))))
 
+;; Run/highlight code using babel in org-mode
+(org-babel-do-load-languages 'org-babel-load-languages
+			     '(
+			       (python . t)
+			       (shell . t)
+			       ))
+;; Syntax highlight in #+BEGIN_SRC blocks
+(setq org-src-fontify-natively t)
+
+;; Don't prompt before running code in org
+(setq org-confirm-babel-evaluate nil)

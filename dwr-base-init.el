@@ -28,3 +28,7 @@
 ;; Git setup - not just used in development :-)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; Artist Mode stuff
+(eval-after-load "artist"
+   '(define-key artist-mode-map [(down-mouse-3)] 'artist-mouse-choose-operation)
+   )
