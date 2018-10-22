@@ -7,6 +7,8 @@
 (require 'org)
 (add-to-list `auto-mode-alist '("\\.org$" . org-mode))
 (setq-default major-mode 'org-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
@@ -20,7 +22,22 @@
 			 "~/gtd/prj-personal.org"
 			 "~/gtd/area.org"
                          "~/gtd/tickler.org"))
-(setq org-todo-keywords '((sequence "TODO" "WORKING" "WAITING" "|" "DONE" "DELEGATED")))
+
+(setq org-todo-keywords '((sequence
+			   "TODO(t)"
+			   "WORKING(s!)"
+			   "WAITING(w@/!)"
+			   "|" "DONE(x!)" "DELEGATED(-@/!)")
+			  ))
+
+(setq org-todo-keyword-faces
+      '(("TODO" . "sienna2")
+        ("WORKING" ."mediumseagreen")
+        ("DONE" . "darkcyan")
+        ("WAITING" . "goldenrod3")
+        ("DELEGATED" . "antiquewhite4")
+       ))
+
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
 			       (file+headline "~/gtd/inbox.org" "Tasks")
 			       "* TODO %i%?")
