@@ -5,9 +5,19 @@
 
 ;; Setup Org Mode and make the default mode
 (require 'org)
+(require 'org-bullets)
+(require 'org-colored-text) ; Allows for colored text
+(require 'ox-md)
+(require 'ox-jira)
+
 (add-to-list `auto-mode-alist '("\\.org$" . org-mode))
 (setq-default major-mode 'org-mode)
-(add-hook 'org-mode-hook #'visual-line-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)  ; Wrap long lines at window edge
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))) ; Use prettier bullets
+(setq org-log-into-drawer 'LOGBOOK) ; Put notes into LOGBOOK Drawer
+(setq org-hide-emphasis-markers 't) ; Hide markers for bold, italics, etc.
+(setq org-use-sub-superscripts '{}) ; Allows underline chars to be used
+(setq org-export-with-sub-superscripts '{}) ; Allows underline chars to be used
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)

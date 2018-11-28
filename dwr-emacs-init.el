@@ -10,6 +10,7 @@
 (ido-mode 1)
 
 ;; more stuff
+(add-to-list 'load-path "~/.emacs.d/emacs-common/elisp/")
 
 (defun dwr-get-fullpath (@file-relative-path)
   "Return the full path of *file-relative-path, relative to caller's file location.
