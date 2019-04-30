@@ -85,3 +85,9 @@
 (require 'flymake-jslint)
 (add-hook 'js2-mode-hook 'flymake-jslint-load)
 
+;; -------------------------------------
+;; Markdown / GFM Editing
+;; -------------------------------------
+
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+(setq markdown-command "pandoc -c file:///home/don/.emacs.d/github-pandoc.css --from markdown_github -t html5 --mathjax --highlight-style pygments --standalone")

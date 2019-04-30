@@ -103,12 +103,20 @@
   (or (string= "TODO" (org-get-todo-state))
       (string= "WORKING" (org-get-todo-state))))
 
+;; Org Babel Setup
 ;; Run/highlight code using babel in org-mode
-(org-babel-do-load-languages 'org-babel-load-languages
-			     '(
-			       (python . t)
-			       (shell . t)
-			       ))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (python . t)
+   (shell . t)
+   (plantuml . t)
+   ))
+(setq org-plantuml-jar-path
+      (expand-file-name "~/local/lib/plantuml.jar"))
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+(setq org-image-actual-width nil)
+
 ;; Syntax highlight in #+BEGIN_SRC blocks
 (setq org-src-fontify-natively t)
 

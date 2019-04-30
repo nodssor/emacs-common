@@ -21,9 +21,12 @@
 ;;(helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;; Scroll behavior
 ;; Scroll window and keep point
 (global-set-key "\M-n" "\C-u1\C-v")
 (global-set-key "\M-p" "\C-u1\M-v")
+(setq scroll-conservatively 5)
+(setq scroll-preserve-screen-position t)
 
 ;; Git setup - not just used in development :-)
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -31,4 +34,4 @@
 ;; Artist Mode stuff
 (eval-after-load "artist"
    '(define-key artist-mode-map [(down-mouse-3)] 'artist-mouse-choose-operation)
-   )
+)
