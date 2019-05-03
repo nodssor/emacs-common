@@ -5,6 +5,5 @@
 ;; Set up Ispell
 (setq ispell-dictionary "english")
 (setq ispell-personal-dictionary (dwr-get-fullpath ".aspell.en.pws"))
-(ispell-kill-ispell)
-(global-set-key (kbd "C-c s") 'ispell-buffer)
+(global-set-key (kbd "C-c i") 'ispell-buffer)
 

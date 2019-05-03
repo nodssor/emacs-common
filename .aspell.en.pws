@@ -1,10 +1,13 @@
-personal_ws-1.1 en 28 
+personal_ws-1.1 en 35 
 VC
+reportable
 TLS
 stringified
 coolapp
 DCA
+whitespace
 MSP
+CRLF
 jwt
 CN
 TGM
@@ -18,8 +21,11 @@ OpenAPI
 TGM's
 ttl
 WOS
+csv
+CSV
 json
 namespaces
+ITEF
 SDCP
 Balancer
 SHA
@@ -27,3 +33,4 @@ TGPs
 datastore
 cne
 XMO
+SRI
