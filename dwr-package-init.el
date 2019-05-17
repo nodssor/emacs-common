@@ -3,8 +3,8 @@
 
 ;;; Code:
 
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
+(require 'cask "~/.emacs.d/emacs-common/cask/cask.el")
+(cask-initialize "~/.emacs.d/emacs-common")
 
 (require 'pallet)
 (pallet-mode 't)

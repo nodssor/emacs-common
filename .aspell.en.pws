@@ -1,8 +1,10 @@
-personal_ws-1.1 en 35 
+personal_ws-1.1 en 39 
 VC
 reportable
 TLS
+SATs
 stringified
+OID
 coolapp
 DCA
 whitespace
@@ -16,13 +18,15 @@ namespace
 namespaced
 TGP
 CloudLab
+Confgiuration
 TGS
 OpenAPI
 TGM's
+AuthZ
+DevOps
 ttl
 WOS
 csv
-CSV
 json
 namespaces
 ITEF
