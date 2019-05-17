@@ -10,3 +10,4 @@ dist/
 *.egg-info/
 /.markdown-preview.html
 .cask
+/.dwr-base-init.el.swp
