@@ -1,8 +1,9 @@
-personal_ws-1.1 en 39 
+personal_ws-1.1 en 41 
 VC
 reportable
 TLS
 SATs
+javascript
 stringified
 OID
 coolapp
@@ -16,6 +17,7 @@ TGM
 Kubernetes
 namespace
 namespaced
+CNSEC
 TGP
 CloudLab
 Confgiuration
