@@ -28,8 +28,8 @@
 
 (setq org-log-done 'time)
 (setq org-agenda-files '("~/gtd/inbox.org"
-                         "~/gtd/prj-work.org"
-			 "~/gtd/prj-personal.org"
+                         "~/gtd/work-projects.org"
+			 "~/gtd/pers-projects.org"
 			 "~/gtd/area.org"
                          "~/gtd/tickler.org"))
 
@@ -63,7 +63,33 @@
 			       :END:")
 			      ("T" "Tickler" entry
 			       (file+headline "~/gtd/tickler.org" "Tickler")
-			       "* %i%? \n %U")))
+			       "* %i%? \n %U")
+
+			      ("d" "Discussion Topic")
+			      ("dp" "with Phani" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@phani:")
+			      ("db" "with BrianS" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@brians:")
+			      ("dt" "with Travis" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@travis:")
+			      ("dm" "with Martin" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@martin:")
+			      ("dw" "with Wanda" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@wanda:")
+			      ("dl" "with Leadership Teams")
+			      ("dlm" "with My Leadership Team" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@ross_leadership:")
+			      ("dlp" "with Phani's Leadership Team" entry
+			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       "* %?%i \t:@phani_leadership:")
+			      ))
+			       
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-targets '(("~/gtd/prj-work.org" :maxlevel . 2)
 			   ("~/gtd/prj-personal.org" :maxlevel . 2)

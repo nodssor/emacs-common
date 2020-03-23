@@ -46,6 +46,9 @@
 ;; Python Development Stuff
 ;; -------------------------------------
 
+(setq python-shell-interpreter "python3")
+(setq elpy-rpc-python-command "python3")
+      
 (elpy-enable)
 
 ;; Set a more reasonable python debugger suggestion
@@ -90,4 +93,10 @@
 ;; -------------------------------------
 
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
-(setq markdown-command "pandoc -c file:///home/don/.emacs.d/github-pandoc.css --from markdown_github -t html5 --mathjax --highlight-style pygments --standalone")
+(setq markdown-command "pandoc -c file:///home/don/.emacs.d/emacs-common/github-pandoc.css --from markdown_github -t html5 --mathjax --highlight-style pygments --standalone")
+
+;; -------------------------------------
+;; AsciiDoc Editing
+;; -------------------------------------
+
+(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))

@@ -43,7 +43,7 @@ To solve this problem, when your code only knows the relative path of another fi
 (load (dwr-get-fullpath "dwr-orgmode-init"))
 (load (dwr-get-fullpath "dwr-devel-init"))
 (load (dwr-get-fullpath "dwr-devel-go-init"))
-(load (dwr-get-fullpath "dwr-email-init"))
+;;(load (dwr-get-fullpath "dwr-email-init"))
 
 ;; more here
 (load (dwr-get-fullpath "dwr-misc-init"))
