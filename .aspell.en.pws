@@ -1,9 +1,9 @@
-personal_ws-1.1 en 81 
-SEP
+personal_ws-1.1 en 85 
 SHA
+SEP
 DevOps
-OID
 PCI
+OID
 SEV
 CNERFI
 DEK
@@ -20,6 +20,7 @@ SLA
 scalability
 cne
 SDCP
+PlantUML
 CN
 HIPAA
 AuthZ
@@ -32,18 +33,20 @@ SATs
 SaaS
 mins
 TGS
-AES
 GBUCS
+AES
 reusability
 whitespace
 Balancer
 GDPR
 ITEF
 APIs
+PHX
+Uncomment
 decrypts
 CNSEC
-CSCS
 coolapp
+CSCS
 Failover
 failover
 Jira
@@ -75,6 +78,7 @@ DCA
 CSSAP
 DSS
 KEK
+TPLA
 Kubernetes
 CFS
 TBD

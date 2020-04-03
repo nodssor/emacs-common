@@ -27,10 +27,13 @@
 
 
 (setq org-log-done 'time)
+
 (setq org-agenda-files '("~/gtd/inbox.org"
-                         "~/gtd/work-projects.org"
-			 "~/gtd/pers-projects.org"
+                         "~/gtd/projects.org"
+			 "~/gtd/projects-p.org"
 			 "~/gtd/area.org"
+			 "~/gtd/area-p.org"
+			 "~/gtd/skylander.org"
                          "~/gtd/tickler.org"))
 
 (setq org-todo-keywords '((sequence
@@ -67,33 +70,35 @@
 
 			      ("d" "Discussion Topic")
 			      ("dp" "with Phani" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@phani:")
 			      ("db" "with BrianS" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@brians:")
 			      ("dt" "with Travis" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@travis:")
 			      ("dm" "with Martin" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@martin:")
 			      ("dw" "with Wanda" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@wanda:")
 			      ("dl" "with Leadership Teams")
 			      ("dlm" "with My Leadership Team" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@ross_leadership:")
 			      ("dlp" "with Phani's Leadership Team" entry
-			       (file+headline "~/gtd/work-discuss.org" "Discussions")
+			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@phani_leadership:")
 			      ))
 			       
 (setq org-outline-path-complete-in-steps nil)
-(setq org-refile-targets '(("~/gtd/prj-work.org" :maxlevel . 2)
-			   ("~/gtd/prj-personal.org" :maxlevel . 2)
+(setq org-refile-targets '(("~/gtd/projects.org" :maxlevel . 2)
+			   ("~/gtd/projects-p.org" :maxlevel . 2)
 			   ("~/gtd/area.org" :maxlevel . 3)
+			   ("~/gtd/area-p.org" :maxlevel . 3)
+			   ("~/gtd/skylander.org" :maxlevel . 3)
 			   ("~/gtd/archives.org" :maxlevel . 2)
 			   ("~/gtd/someday.org" :maxlevel . 1)
 			   ("~/gtd/resources.org" :maxlevel . 2)
@@ -104,7 +109,8 @@
 (setq org-completion-use-ido t)
 
 (setq org-agenda-custom-commands
-      '(("o" "At the office" tags-todo "office"
+      
+      '(("O" "AT the office" tags-todo "office"
          ((org-agenda-overriding-header "Office")))
 
 
