@@ -30,10 +30,10 @@
 
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/projects.org"
-			 "~/gtd/projects-p.org"
 			 "~/gtd/area.org"
-			 "~/gtd/area-p.org"
 			 "~/gtd/skylander.org"
+			 "~/gtd/area-p.org"
+			 "~/gtd/projects-p.org"
                          "~/gtd/tickler.org"))
 
 (setq org-todo-keywords '((sequence
@@ -110,13 +110,33 @@
 
 (setq org-agenda-custom-commands
       
-      '(("O" "AT the office" tags-todo "office"
-         ((org-agenda-overriding-header "Office")))
-
-
-	("n" "All Next Tasks" todo ""
+      '(("n" "All Next Tasks" todo ""
          ((org-agenda-overriding-header "Next")
-          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))))
+          (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+
+	("d" . "Discussion Topics")
+	("dp" "To Discuss with Phani" tags "@phani"
+	 ((org-agenda-overriding-header "Discussion Points with Phani")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("db" "To Discuss with Brian" tags "@brian"
+	 ((org-agenda-overriding-header "Discussion Points with Brian")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dt" "To Discuss with Travis" tags "@travis"
+	 ((org-agenda-overriding-header "Discussion Points with Travis")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dm" "To Discuss with Micah" tags "@micah"
+	 ((org-agenda-overriding-header "Discussion Points with Micah")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dj" "To Discuss with Jillian" tags "@jillian"
+	 ((org-agenda-overriding-header "Discussion Points with Jillian")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dL" "To Discuss with SCE Leadership" tags "@sce_leaders"
+	 ((org-agenda-overriding-header "Discussion Points with SCE Leadership")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dl" "To Discuss with My Leadership" tags "@my_leaders"
+	 ((org-agenda-overriding-header "Discussion Points with My Leadership")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
   "Skip all but the first non-done entry."

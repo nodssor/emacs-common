@@ -5,6 +5,33 @@
 
 (setq inhibit-splash-screen t)
 
+
+;; Determine the specific system type. Specifcally setting up WSL specifics.
+;; Emacs variable system-type doesn't yet have a "wsl/linux" value,
+;; so I'm front-ending system-type with my variable: system-type-specific
+(defvar system-type-specific)
+(setq-default system-type-specific  system-type) ;; get the system-type value
+
+(cond
+ ;; If type is "gnu/linux", override to "wsl/linux" if it's WSL.
+ ((eq system-type-specific 'gnu/linux)
+  (when (string-match "Linux.*Microsoft.*Linux"
+                      (shell-command-to-string "uname -a"))
+
+    (setq-default system-type-specific "wsl/linux") ;; for later use.
+    ;; Below allows emacs to lauch native Windows default browser.
+    (defvar wsl-cmd-exe)
+    (defvar wsl-cmd-exe-args)
+    (setq
+     wsl-cmd-exe "/mnt/c/Windows/System32/cmd.exe"
+     wsl-cmd-exe-args '("/c" "start" "") )
+    (setq
+     browse-url-generic-program  wsl-cmd-exe
+     browse-url-generic-args     wsl-cmd-exe-args
+     browse-url-browser-function 'browse-url-generic)
+    )))
+
+
 ;; Major Theme
 (load-theme 'zenburn t)
 ;; Mode line theme (based on Powerline)
@@ -15,6 +42,11 @@
 ;; Easy window navigation
 (global-set-key (kbd "M-]") 'ace-window)
 (global-set-key (kbd "C-M-]") 'ace-swap-window)
+
+;; Move line
+(global-set-key [(meta shift up)]  'move-line-up)
+(global-set-key [(meta shift down)]  'move-line-down)
+
 
 ;; Ace Jump Mode
 (autoload
