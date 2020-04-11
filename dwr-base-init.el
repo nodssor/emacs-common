@@ -31,6 +31,10 @@
      browse-url-browser-function 'browse-url-generic)
     )))
 
+;; GUI Adjustments
+(tool-bar-mode -1) ;; Disable toolbar
+(toggle-scroll-bar -1) ;; Disable scrollbars
+
 
 ;; Major Theme
 (load-theme 'zenburn t)
@@ -39,6 +43,7 @@
 (require `airline-themes)
 (load-theme 'airline-papercolor t)
 
+;; Movement and Navigation
 ;; Easy window navigation
 (global-set-key (kbd "M-]") 'ace-window)
 (global-set-key (kbd "C-M-]") 'ace-swap-window)
@@ -46,7 +51,6 @@
 ;; Move line
 (global-set-key [(meta shift up)]  'move-line-up)
 (global-set-key [(meta shift down)]  'move-line-down)
-
 
 ;; Ace Jump Mode
 (autoload
@@ -65,17 +69,24 @@
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
-;; Setup basic Helm with M-x override
-(require 'helm)
-;;(helm-mode 1)
-(global-set-key (kbd "M-x") 'helm-M-x)
-
 ;; Scroll behavior
 ;; Scroll window and keep point
 (global-set-key "\M-n" "\C-u1\C-v")
 (global-set-key "\M-p" "\C-u1\M-v")
 (setq scroll-conservatively 5)
 (setq scroll-preserve-screen-position t)
+
+
+;; Global Format and Display
+;; Truncate lines by default and set key binding
+(set-default 'truncate-lines t)
+(global-set-key (kbd "C-x \\") 'toggle-truncate-lines)
+
+
+;; Setup basic Helm with M-x override
+(require 'helm)
+;;(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Git setup - not just used in development :-)
 (global-set-key (kbd "C-x g") 'magit-status)

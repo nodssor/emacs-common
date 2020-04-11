@@ -31,9 +31,8 @@
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/projects.org"
 			 "~/gtd/area.org"
-			 "~/gtd/skylander.org"
-			 "~/gtd/area-p.org"
-			 "~/gtd/projects-p.org"
+			 "~/gtd/x-area.org"
+			 "~/gtd/x-projects.org"
                          "~/gtd/tickler.org"))
 
 (setq org-todo-keywords '((sequence
@@ -95,9 +94,9 @@
 			       
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-targets '(("~/gtd/projects.org" :maxlevel . 2)
-			   ("~/gtd/projects-p.org" :maxlevel . 2)
+			   ("~/gtd/x-projects.org" :maxlevel . 2)
 			   ("~/gtd/area.org" :maxlevel . 3)
-			   ("~/gtd/area-p.org" :maxlevel . 3)
+			   ("~/gtd/x-area.org" :maxlevel . 3)
 			   ("~/gtd/skylander.org" :maxlevel . 3)
 			   ("~/gtd/archives.org" :maxlevel . 2)
 			   ("~/gtd/someday.org" :maxlevel . 1)
@@ -110,8 +109,9 @@
 
 (setq org-agenda-custom-commands
       
-      '(("n" "All Next Tasks" todo ""
-         ((org-agenda-overriding-header "Next")
+      '(("n" "All Next Tasks" tags-todo "+active"
+         ((org-agenda-overriding-header "Active Project Next Tasks")
+	  (org-agenda-files '("~/gtd/projects.org"))
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
 
 	("d" . "Discussion Topics")
