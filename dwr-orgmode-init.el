@@ -31,9 +31,22 @@
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/projects.org"
 			 "~/gtd/area.org"
+			 "~/gtd/meetings.org"
 			 "~/gtd/x-area.org"
 			 "~/gtd/x-projects.org"
+			 "~/gtd/skylander.org"
                          "~/gtd/tickler.org"))
+
+; Set registers for quick loading/jumping to org files
+; Using C-x r j <letter>
+(set-register ?i '(file . "~/gtd/inbox.org"))
+(set-register ?p '(file . "~/gtd/projects.org"))
+(set-register ?a '(file . "~/gtd/area.org"))
+(set-register ?m '(file . "~/gtd/meetings.org"))
+(set-register ?s '(file . "~/gtd/skylander.org"))
+; Also allow a quick jump to the orgmode configuration (this file)
+(set-register ?O '(file . "~/.emacs.d/emacs-common/dwr-orgmode-init.el"))
+
 
 (setq org-todo-keywords '((sequence
 			   "TODO(t)"
@@ -66,6 +79,9 @@
 			      ("T" "Tickler" entry
 			       (file+headline "~/gtd/tickler.org" "Tickler")
 			       "* %i%? \n %U")
+			      ("m" "Meeting" entry
+			       (file+datetree "~/gtd/meetings.org")
+			       "* %^{Meeting Title}\n  :WHEN: %U\n  :WHO: %^{Attendees}\n** Notes\n*** %?" :tree-type 'week)
 
 			      ("d" "Discussion Topic")
 			      ("dp" "with Phani" entry
@@ -77,19 +93,24 @@
 			      ("dt" "with Travis" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@travis:")
-			      ("dm" "with Martin" entry
+			      ("dm" "with Micah" entry
+			       (file+headline "~/gtd/discuss.org" "Discussions")
+			       "* %?%i \t:@micah:")
+			      ("dj" "with Jillian" entry
+			       (file+headline "~/gtd/discuss.org" "Discussions")
+			       "* %?%i \t:@jillian:")
+			      ("dM" "with Martin" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@martin:")
 			      ("dw" "with Wanda" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@wanda:")
-			      ("dl" "with Leadership Teams")
-			      ("dlm" "with My Leadership Team" entry
+			      ("dl" "with My Leadership Team" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@ross_leadership:")
-			      ("dlp" "with Phani's Leadership Team" entry
+			       "* %?%i \t:@my_leaders:")
+			      ("dL" "with Phani's Leadership Team" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@phani_leadership:")
+			       "* %?%i \t:@sce_leaders:")
 			      ))
 			       
 (setq org-outline-path-complete-in-steps nil)
@@ -114,6 +135,52 @@
 	  (org-agenda-files '("~/gtd/projects.org"))
           (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
 
+	("q" "Weekly Heads Up Display"
+	 ((agenda "" ((org-agenda-span 7))
+		  ((org-agenda-overriding-header "Time Sensitive Tasks")))
+
+	  ; Anything still left in Inbox (Level 2 items with tags starting with t,p,r)
+	  ; Which is everything
+	  (tags "LEVEL=2+{^[tpr].*}"
+		((org-agenda-overriding-header "Needs Filing")
+		 (org-agenda-files '("~/gtd/inbox.org"))))
+
+	  ; Loose tasks not associated with a project
+	  (todo "TODO"
+		((org-agenda-overriding-header "Individual Tasks")
+		 (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
+		 (org-agenda-files '("~/gtd/meetings.org" "~/gtd/area.org" "~/gtd/x-area.org"))))
+
+	  ; Next steps on all active projects
+	  (tags-todo "+active"
+		     ((org-agenda-overriding-header "Active Project Next Tasks")
+		      (org-agenda-files '("~/gtd/projects.org"))
+		      (org-agenda-skip-function #'my-org-agenda-skip-all-siblings-but-first)))
+	  
+	  (todo "WAITING|DELEGATED"
+		((org-agenda-overriding-header "Delegated or Waiting On Tasks")
+		 (org-agenda-files '("~/gtd/projects.org" "~/gtd/area.org"))
+		 ))
+
+	  ; Next steps on all active projects
+	  (tags-todo "+Don"
+		     ((org-agenda-overriding-header "Skylander Media Tasks")
+		      (org-agenda-files '("~/gtd/skylander.org"))
+		      (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))))
+	  ))
+
+	;; Completed tasks for status reports
+	("S" "Weekly Review"
+	 agenda ""
+	 ((org-agenda-start-day "-7d")
+	  (org-agenda-overriding-header "The Week In Review")
+	  (org-agenda-span 14)
+	  (org-agenda-start-on-weekday 1)
+	  (org-agenda-start-with-log-mode `(closed state))
+	  ;(org-agenda-skip-function `(org-agenda-skip-entry-if `notregexp "^\\*+ DONE "))
+	  (org-agenda-files '("~/gtd/projects.org" "~/gtd/area.org"))
+	  ))
+
 	("d" . "Discussion Topics")
 	("dp" "To Discuss with Phani" tags "@phani"
 	 ((org-agenda-overriding-header "Discussion Points with Phani")
@@ -129,6 +196,12 @@
 	  (org-agenda-files '("~/gtd/discuss.org"))))
 	("dj" "To Discuss with Jillian" tags "@jillian"
 	 ((org-agenda-overriding-header "Discussion Points with Jillian")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dM" "To Discuss with Martin" tags "@martin"
+	 ((org-agenda-overriding-header "Discussion Points with Martin")
+	  (org-agenda-files '("~/gtd/discuss.org"))))
+	("dw" "To Discuss with Wanda" tags "@wanda"
+	 ((org-agenda-overriding-header "Discussion Points with Wanda")
 	  (org-agenda-files '("~/gtd/discuss.org"))))
 	("dL" "To Discuss with SCE Leadership" tags "@sce_leaders"
 	 ((org-agenda-overriding-header "Discussion Points with SCE Leadership")
