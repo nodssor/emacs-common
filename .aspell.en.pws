@@ -1,9 +1,10 @@
-personal_ws-1.1 en 85 
-SHA
+personal_ws-1.1 en 87 
 SEP
+SHA
+refactoring
 DevOps
-PCI
 OID
+PCI
 SEV
 CNERFI
 DEK
@@ -33,20 +34,20 @@ SATs
 SaaS
 mins
 TGS
-GBUCS
 AES
+GBUCS
 reusability
 whitespace
 Balancer
 GDPR
+PHX
 ITEF
 APIs
-PHX
 Uncomment
 decrypts
 CNSEC
-coolapp
 CSCS
+coolapp
 Failover
 failover
 Jira
@@ -57,6 +58,7 @@ CRLF
 SRI
 namespaced
 Confgiuration
+DNS
 jwt
 TLS
 csv

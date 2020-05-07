@@ -31,6 +31,7 @@
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/projects.org"
 			 "~/gtd/area.org"
+			 "~/gtd/discuss.org"
 			 "~/gtd/meetings.org"
 			 "~/gtd/x-area.org"
 			 "~/gtd/x-projects.org"
@@ -42,6 +43,7 @@
 (set-register ?i '(file . "~/gtd/inbox.org"))
 (set-register ?p '(file . "~/gtd/projects.org"))
 (set-register ?a '(file . "~/gtd/area.org"))
+(set-register ?d '(file . "~/gtd/discuss.org"))
 (set-register ?m '(file . "~/gtd/meetings.org"))
 (set-register ?s '(file . "~/gtd/skylander.org"))
 ; Also allow a quick jump to the orgmode configuration (this file)
@@ -118,6 +120,7 @@
 			   ("~/gtd/x-projects.org" :maxlevel . 2)
 			   ("~/gtd/area.org" :maxlevel . 3)
 			   ("~/gtd/x-area.org" :maxlevel . 3)
+			   ("~/gtd/discuss.org" :maxlevel . 2)
 			   ("~/gtd/skylander.org" :maxlevel . 3)
 			   ("~/gtd/archives.org" :maxlevel . 2)
 			   ("~/gtd/someday.org" :maxlevel . 1)
@@ -170,7 +173,7 @@
 	  ))
 
 	;; Completed tasks for status reports
-	("S" "Weekly Review"
+	("w" "Weekly Review"
 	 agenda ""
 	 ((org-agenda-start-day "-7d")
 	  (org-agenda-overriding-header "The Week In Review")
@@ -178,37 +181,37 @@
 	  (org-agenda-start-on-weekday 1)
 	  (org-agenda-start-with-log-mode `(closed state))
 	  ;(org-agenda-skip-function `(org-agenda-skip-entry-if `notregexp "^\\*+ DONE "))
-	  (org-agenda-files '("~/gtd/projects.org" "~/gtd/area.org"))
+	  (org-agenda-files '("~/gtd/projects.org" "~/gtd/area.org" "~/gtd/meetings.org"))
 	  ))
 
 	("d" . "Discussion Topics")
 	("dp" "To Discuss with Phani" tags "@phani"
 	 ((org-agenda-overriding-header "Discussion Points with Phani")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("db" "To Discuss with Brian" tags "@brian"
 	 ((org-agenda-overriding-header "Discussion Points with Brian")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dt" "To Discuss with Travis" tags "@travis"
 	 ((org-agenda-overriding-header "Discussion Points with Travis")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dm" "To Discuss with Micah" tags "@micah"
 	 ((org-agenda-overriding-header "Discussion Points with Micah")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dj" "To Discuss with Jillian" tags "@jillian"
 	 ((org-agenda-overriding-header "Discussion Points with Jillian")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dM" "To Discuss with Martin" tags "@martin"
 	 ((org-agenda-overriding-header "Discussion Points with Martin")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dw" "To Discuss with Wanda" tags "@wanda"
 	 ((org-agenda-overriding-header "Discussion Points with Wanda")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dL" "To Discuss with SCE Leadership" tags "@sce_leaders"
 	 ((org-agenda-overriding-header "Discussion Points with SCE Leadership")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dl" "To Discuss with My Leadership" tags "@my_leaders"
 	 ((org-agenda-overriding-header "Discussion Points with My Leadership")
-	  (org-agenda-files '("~/gtd/discuss.org"))))
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	))
 
 (defun my-org-agenda-skip-all-siblings-but-first ()
