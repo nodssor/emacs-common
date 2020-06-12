@@ -28,6 +28,14 @@
 ;; enable column numbers on Mode Line
 (setq column-number-mode t)
 
+(use-package hideshow
+  :bind ("C-c h" . hs-toggle-hiding)
+  :bind ("C-c =" . hs-hide-all)
+  :bind ("C-c +" . hs-show-all)
+  :commands hs-toggle-hiding
+  :defer t)
+
+(add-hook 'elpy-mode-hook 'hs-minor-mode)
 
 ;; -------------------------------------
 ;; Perl Development Stuff

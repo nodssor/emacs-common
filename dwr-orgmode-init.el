@@ -149,7 +149,7 @@
 		 (org-agenda-files '("~/gtd/inbox.org"))))
 
 	  ; Loose tasks not associated with a project
-	  (todo "TODO"
+	  (todo "TODO|WORKING"
 		((org-agenda-overriding-header "Individual Tasks")
 		 (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
 		 (org-agenda-files '("~/gtd/meetings.org" "~/gtd/area.org" "~/gtd/x-area.org"))))
