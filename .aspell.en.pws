@@ -22,6 +22,12 @@ CSCS
 CSSAP
 csv
 dast
+coolapp
+CRLF
+CSCS
+CSSAP
+csv
+DAST
 datastore
 DCA
 decrypts
@@ -41,6 +47,7 @@ GBUCS
 GDPR
 GIS
 GoPro
+
 HIDS
 HIPAA
 IdM
@@ -52,6 +59,12 @@ Istio
 ITEF
 javascript
 JEDI
+HIPAA
+ie
+Influencers
+IPR
+ITEF
+javascript
 Jira
 json
 jwt
@@ -64,6 +77,8 @@ microservices
 mins
 MSP
 mTLS
+mins
+MSP
 MVP
 namespace
 namespaced
@@ -81,6 +96,12 @@ OpenAPI
 OpenID
 OSSA
 parfait
+OCI
+OID
+OIM
+onboarding
+OpenAPI
+OSSA
 PCI
 PHX
 PlantUML
@@ -91,6 +112,7 @@ RBAC
 Refactor
 refactoring
 repave
+refactoring
 reportable
 RESTFuzz
 reusability
@@ -106,6 +128,10 @@ scrum
 SDaaS
 SDCP
 SEAs
+SCE
+scrum
+SDaaS
+SDCP
 SEP
 SEV
 SHA
