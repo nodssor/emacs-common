@@ -11,7 +11,7 @@
 (require 'ox-jira)
 
 (add-to-list `auto-mode-alist '("\\.org$" . org-mode))
-(setq-default major-mode 'org-mode)
+;(setq-default major-mode 'org-mode)
 (add-hook 'org-mode-hook #'visual-line-mode)  ; Wrap long lines at window edge
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))) ; Use prettier bullets
 (setq org-log-into-drawer 'LOGBOOK) ; Put notes into LOGBOOK Drawer
@@ -149,7 +149,7 @@
 		 (org-agenda-files '("~/gtd/inbox.org"))))
 
 	  ; Loose tasks not associated with a project
-	  (todo "TODO"
+	  (todo "TODO|WORKING"
 		((org-agenda-overriding-header "Individual Tasks")
 		 (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
 		 (org-agenda-files '("~/gtd/meetings.org" "~/gtd/area.org" "~/gtd/x-area.org"))))

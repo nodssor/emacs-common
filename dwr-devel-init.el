@@ -28,6 +28,12 @@
 ;; enable column numbers on Mode Line
 (setq column-number-mode t)
 
+(use-package hideshow
+  :bind ("C-c h" . hs-toggle-hiding)
+  :bind ("C-c =" . hs-hide-all)
+  :bind ("C-c +" . hs-show-all)
+  :commands hs-toggle-hiding
+  :defer t)
 
 ;; -------------------------------------
 ;; Perl Development Stuff
@@ -46,16 +52,19 @@
 ;; Python Development Stuff
 ;; -------------------------------------
 
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (setq python-shell-interpreter "python3")
 (setq elpy-rpc-python-command "python3")
-      
+(add-hook 'elpy-mode-hook 'hs-minor-mode)      
 (elpy-enable)
 
 ;; Set a more reasonable python debugger suggestion
+(setq pdb-path '/usr/lib/python3.8/pdb.py
+      gud-pdb-command-name (symbol-name pdb-path))
 (defadvice pdb (before gud-query-cmdline activate)
   "Provide a better default command line when called interactively."
   (interactive
-   (list (gud-query-cmdline 'pdb
+   (list (gud-query-cmdline pdb-path
       (file-name-nondirectory buffer-file-name)))))
 
 
