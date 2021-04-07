@@ -164,7 +164,7 @@
 	  
 	  (todo "WAITING|DELEGATED"
 		((org-agenda-overriding-header "Delegated or Waiting On Tasks")
-		 (org-agenda-files '("~/gtd/projects.org" "~/gtd/area.org"))
+		 (org-agenda-files '("~/gtd/projects.org" "~/gtd/area.org" "~/gtd/meetings.org"))
 		 ))
 
 	  ; Next steps on all active projects
