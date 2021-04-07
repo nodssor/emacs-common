@@ -38,6 +38,7 @@
 
 ;; Major Theme
 (load-theme 'zenburn t)
+;; (load-theme 'fantom t)
 ;; Mode line theme (based on Powerline)
 ;; Requires Powerline fonts on Windows when using Putty
 (require `airline-themes)
@@ -96,4 +97,4 @@
    '(define-key artist-mode-map [(down-mouse-3)] 'artist-mouse-choose-operation)
 )
 
-(require 'bookmark+)
+;;(require 'bookmark+)

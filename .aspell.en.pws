@@ -1,4 +1,4 @@
-personal_ws-1.1 en 154 
+personal_ws-1.1 en 158 
 AES
 API
 APIs
@@ -39,6 +39,8 @@ GoPro
 HIDS
 HIPAA
 HTTPS
+Hyperscale
+Hyperscaled
 IPP
 IPR
 ITEF
@@ -93,6 +95,7 @@ SLA
 SRC
 SRI
 SaaS
+Scalable
 Sharding
 Skylander
 TBD
@@ -126,6 +129,7 @@ failover
 failovers
 filebeats
 functionals
+gurantee
 ie
 javascript
 json

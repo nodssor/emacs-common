@@ -46,6 +46,7 @@
 (set-register ?d '(file . "~/gtd/discuss.org"))
 (set-register ?m '(file . "~/gtd/meetings.org"))
 (set-register ?s '(file . "~/gtd/skylander.org"))
+(set-register ?r '(file . "~/gtd/resources.org"))
 ; Also allow a quick jump to the orgmode configuration (this file)
 (set-register ?O '(file . "~/.emacs.d/emacs-common/dwr-orgmode-init.el"))
 
@@ -76,6 +77,7 @@
 			       "* %i%?
 			       :PROPERTIES:
                                :Area:
+                               :URL:
 			       :Note:
 			       :END:")
 			      ("T" "Tickler" entry

@@ -17,6 +17,6 @@
              '("elpy" . "https://jorgenschaefer.github.io/packages/"))
 ;;(add-to-list 'package-archives
 ;;             '("marmalade" . "https://marmalade-repo.org/packages/"))
-(package-initialize)
+;;(package-initialize)
 
 

@@ -23,7 +23,6 @@
     (define-key map (kbd "C-c a") 'go-test-current-project) ;; current package, really
     (define-key map (kbd "C-c m") 'go-test-current-file)
     (define-key map (kbd "C-c .") 'go-test-current-test)
-    (define-key map (kbd "C-c c") 'compile)
     (define-key map (kbd "C-c b") 'go-run))
 )
  

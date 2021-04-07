@@ -4,7 +4,7 @@
 ;;; Code:
 
 (require 'package)
-(package-initialize)
+;;(package-initialize)
 
 (require 'ido)
 (ido-mode 1)
