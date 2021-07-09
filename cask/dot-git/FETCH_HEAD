@@ -1,8 +1,0 @@
-c3a78630300377be179a6f83fc0d8d68ec07af06		branch 'master' of https://github.com/cask/cask
-d1edea39bd1d4dccbff54b00a040b12470780dee	not-for-merge	branch 'feature/auto-initialize-elpadir-when-linking' of https://github.com/cask/cask
-006619ab38242f8c3418fa48c0786a93874bb418	not-for-merge	branch 'fix-failing-upgrade' of https://github.com/cask/cask
-edb9e8efdb71377503061f21d21f267204b5cee9	not-for-merge	branch 'load-path-option' of https://github.com/cask/cask
-8ab85cf2c73fe0ca211819d726c0d4451b9b3b9f	not-for-merge	branch 'proper-build-exit-code' of https://github.com/cask/cask
-bd06f6e56461ec6abfc09d10db27cba2e49d8c0b	not-for-merge	branch 'pull-383' of https://github.com/cask/cask
-ccfe38ae133cc843865f87607d3f4f3960b76870	not-for-merge	branch 'release-v0.8' of https://github.com/cask/cask
-c8b433329bfce45ffba5a2c878b01294e71e14d3	not-for-merge	branch 'revert-400-master' of https://github.com/cask/cask

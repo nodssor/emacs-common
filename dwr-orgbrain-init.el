@@ -48,4 +48,3 @@
     ;;; Let's also assign C-z to undo here
     (global-set-key (kbd "C-z") 'undo) ;Emacs default is bound to hide Emacs.
   )
-

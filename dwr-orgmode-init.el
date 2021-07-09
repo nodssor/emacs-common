@@ -36,7 +36,8 @@
 			 "~/gtd/x-area.org"
 			 "~/gtd/x-projects.org"
 			 "~/gtd/skylander.org"
-                         "~/gtd/tickler.org"))
+                         "~/gtd/tickler.org"
+			 "~/.org-brain/brains/ocp-program"))
 
 ; Set registers for quick loading/jumping to org files
 ; Using C-x r j <letter>
@@ -88,33 +89,36 @@
 			       "* %^{Meeting Title}\n  :WHEN: %U\n  :WHO: %^{Attendees}\n** Notes\n*** %?" :tree-type 'week)
 
 			      ("d" "Discussion Topic")
-			      ("dp" "with Phani" entry
+			      ("dc" "with Chris" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@phani:")
-			      ("db" "with BrianS" entry
+			       "* %?%i \t:@chris:")
+			      ("dR" "with RobT" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@brians:")
-			      ("dt" "with Travis" entry
+			       "* %?%i \t:@robt:")
+			      ("dr" "with RobM" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@travis:")
-			      ("dm" "with Micah" entry
+			       "* %?%i \t:@robm:")
+			      ("da" "with Alan" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@micah:")
-			      ("dj" "with Jillian" entry
+			       "* %?%i \t:@alan:")
+			      ("dy" "with Ryan" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@jillian:")
-			      ("dM" "with Martin" entry
+			       "* %?%i \t:@Ryan:")
+			      ("dm" "with MichaelS" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@martin:")
-			      ("dw" "with Wanda" entry
+			       "* %?%i \t:@stoker:")
+			      ("dj" "with Jen" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@wanda:")
+			       "* %?%i \t:@jen:")
+			      ("df" "with MichaelF" entry
+			       (file+headline "~/gtd/discuss.org" "Discussions")
+			       "* %?%i \t:@finelli:")
 			      ("dl" "with My Leadership Team" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
 			       "* %?%i \t:@my_leaders:")
-			      ("dL" "with Phani's Leadership Team" entry
+			      ("dL" "with Chris' Leadership Team" entry
 			       (file+headline "~/gtd/discuss.org" "Discussions")
-			       "* %?%i \t:@sce_leaders:")
+			       "* %?%i \t:@cfs_leaders:")
 			      ))
 			       
 (setq org-outline-path-complete-in-steps nil)
@@ -187,29 +191,32 @@
 	  ))
 
 	("d" . "Discussion Topics")
-	("dp" "To Discuss with Phani" tags "@phani"
-	 ((org-agenda-overriding-header "Discussion Points with Phani")
+	("dc" "To Discuss with Chris" tags "@chris"
+	 ((org-agenda-overriding-header "Discussion Points with Chris")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("db" "To Discuss with Brian" tags "@brian"
-	 ((org-agenda-overriding-header "Discussion Points with Brian")
+	("dR" "To Discuss with RobT" tags "@robt"
+	 ((org-agenda-overriding-header "Discussion Points with RobT")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("dt" "To Discuss with Travis" tags "@travis"
-	 ((org-agenda-overriding-header "Discussion Points with Travis")
+	("dr" "To Discuss with RobM" tags "@robm"
+	 ((org-agenda-overriding-header "Discussion Points with RobM")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("dm" "To Discuss with Micah" tags "@micah"
-	 ((org-agenda-overriding-header "Discussion Points with Micah")
+	("da" "To Discuss with Alan" tags "@alan"
+	 ((org-agenda-overriding-header "Discussion Points with Alan")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("dj" "To Discuss with Jillian" tags "@jillian"
-	 ((org-agenda-overriding-header "Discussion Points with Jillian")
+	("dy" "To Discuss with Ryan" tags "@ryan"
+	 ((org-agenda-overriding-header "Discussion Points with Ryan")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("dM" "To Discuss with Martin" tags "@martin"
-	 ((org-agenda-overriding-header "Discussion Points with Martin")
+	("dm" "To Discuss with MichaelS" tags "@stoker"
+	 ((org-agenda-overriding-header "Discussion Points with MichaelS")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("dw" "To Discuss with Wanda" tags "@wanda"
-	 ((org-agenda-overriding-header "Discussion Points with Wanda")
+	("dj" "To Discuss with Jen" tags "@jen"
+	 ((org-agenda-overriding-header "Discussion Points with Jen")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
-	("dL" "To Discuss with SCE Leadership" tags "@sce_leaders"
-	 ((org-agenda-overriding-header "Discussion Points with SCE Leadership")
+	("df" "To Discuss with MichaelF" tags "@finelli"
+	 ((org-agenda-overriding-header "Discussion Points with MichaelF")
+	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
+	("dL" "To Discuss with CFS Leadership" tags "@cfs_leaders"
+	 ((org-agenda-overriding-header "Discussion Points with CFS Leadership")
 	  (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("DONE")))))
 	("dl" "To Discuss with My Leadership" tags "@my_leaders"
 	 ((org-agenda-overriding-header "Discussion Points with My Leadership")
@@ -252,3 +259,18 @@
 
 ;; Don't prompt before running code in org
 (setq org-confirm-babel-evaluate nil)
+
+;; Setup Deft for quick searching of all org files
+(require 'deft)
+(setq deft-default-extension "org")
+(setq deft-extensions '("org"))
+(setq deft-directory "~")
+(setq deft-recursive t)
+(setq deft-use-filename-as-title nil)
+(setq deft-use-filter-string-for-filename t)
+(setq deft-file-naming-rules '((noslash . "-")
+			       (nospace . "-")
+			       (case-fn . downcase)))
+(setq deft-text-mode 'org-mode)
+(global-set-key (kbd "M-s s") 'deft)
+(global-set-key (kbd "C-x C-g") 'deft-find-file)
