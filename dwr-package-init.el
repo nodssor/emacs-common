@@ -3,13 +3,14 @@
 
 ;;; Code:
 
-(require 'cask "~/.emacs.d/emacs-common/cask/cask.el")
+(require 'cask "~/.emacs.d/emacs-common/_cask/cask.el")
 (cask-initialize "~/.emacs.d/emacs-common")
 
 (require 'pallet)
 (pallet-mode 't)
 
 ;;(require 'use-package)
+(setq package-check-signature nil)
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") )

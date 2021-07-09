@@ -81,21 +81,6 @@
          (linum-format (concat "%" (number-to-string w) "d\u2502")))
     ad-do-it))
 
-;; -------------------------------------
-;; JavaScript Development Stuff
-;; -------------------------------------
-
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;; For NodeJS scripting
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-;; NodeJS REPL
-(require 'nodejs-repl)
-;; JS Refactoring - https://github.com/magnars/js2-refactor.el
-(require 'js2-refactor)
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
-(require 'flymake-jslint)
-(add-hook 'js2-mode-hook 'flymake-jslint-load)
 
 ;; -------------------------------------
 ;; Markdown / GFM Editing
