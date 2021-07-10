@@ -15,18 +15,11 @@
   :ensure t
   :init (global-flycheck-mode))
 
-
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;; default to better frame titles
-(setq frame-title-format
-      (concat  "%b - emacs@" (system-name)))
-
 ;; default to unified diffs
 (setq diff-switches "-u")
 
 ;; enable column numbers on Mode Line
-(setq column-number-mode t)
+;;(setq column-number-mode t)
 
 (use-package hideshow
   :bind ("C-c h" . hs-toggle-hiding)
@@ -39,14 +32,8 @@
 ;; Perl Development Stuff
 ;; -------------------------------------
 
+(use-package elpy)
 (defalias 'perl-mode 'cperl-mode)
-
-;; -------------------------------------
-;; Docker Development Stuff
-;; -------------------------------------
-
-(require 'docker)
-;;(docker-global-mode t)
 
 ;; -------------------------------------
 ;; Python Development Stuff
@@ -66,20 +53,6 @@
   (interactive
    (list (gud-query-cmdline pdb-path
       (file-name-nondirectory buffer-file-name)))))
-
-
-(add-hook 'prog-mode-hook 'linum-mode)
-
-
-;; *** Line Number Configuration block ****************
-(require 'hlinum)
-(hlinum-activate)
-
-(defadvice linum-update-window (around linum-dynamic activate)
-  (let* ((w (length (number-to-string
-                     (count-lines (point-min) (point-max)))))
-         (linum-format (concat "%" (number-to-string w) "d\u2502")))
-    ad-do-it))
 
 
 ;; -------------------------------------

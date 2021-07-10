@@ -4,11 +4,9 @@
 ;;; Code:
 
 ;; Setup Org Mode and make the default mode
-(require 'org)
-(require 'org-bullets)
-(require 'org-colored-text) ; Allows for colored text
-(require 'ox-md)
-(require 'ox-jira)
+(use-package org)
+(use-package org-bullets)
+(use-package ox-jira)
 
 (add-to-list `auto-mode-alist '("\\.org$" . org-mode))
 ;(setq-default major-mode 'org-mode)
@@ -261,7 +259,7 @@
 (setq org-confirm-babel-evaluate nil)
 
 ;; Setup Deft for quick searching of all org files
-(require 'deft)
+(use-package deft)
 (setq deft-default-extension "org")
 (setq deft-extensions '("org"))
 (setq deft-directory "~")

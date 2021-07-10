@@ -29,7 +29,7 @@
 (add-hook 'go-mode-hook 'go-mode-setup)
 (add-hook 'go-mode-hook 'hs-minor-mode)
 
-(require 'auto-complete-config)
-;;(require 'go-autocomplete)
+(use-package auto-complete)
+(use-package go-autocomplete)
 
 

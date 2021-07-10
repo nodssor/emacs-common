@@ -8,11 +8,8 @@
 ;; disable package-initilize warnings
 (setq warning-suppress-log-types '((package reinitialization)))
 
-(require 'package)
-;;(package-initialize)
-
-(require 'ido)
-(ido-mode 1)
+;(require 'ido)
+;(ido-mode 1)
 
 ;; more stuff
 (add-to-list 'load-path "~/.emacs.d/emacs-common/elisp/")
@@ -53,3 +50,4 @@ To solve this problem, when your code only knows the relative path of another fi
 
 ;; more here
 (load (dwr-get-fullpath "dwr-misc-init"))
+

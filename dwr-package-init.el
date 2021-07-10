@@ -3,21 +3,18 @@
 
 ;;; Code:
 
-(require 'cask "~/.emacs.d/emacs-common/_cask/cask.el")
-(cask-initialize "~/.emacs.d/emacs-common")
-
-(require 'pallet)
-(pallet-mode 't)
-
-;;(require 'use-package)
-(setq package-check-signature nil)
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") )
-(add-to-list 'package-archives
-             '("elpy" . "https://jorgenschaefer.github.io/packages/"))
-;;(add-to-list 'package-archives
-;;             '("marmalade" . "https://marmalade-repo.org/packages/"))
-;;(package-initialize)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
+(package-initialize)
+(unless package-archive-contents
+ (package-refresh-contents))
 
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+   (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
