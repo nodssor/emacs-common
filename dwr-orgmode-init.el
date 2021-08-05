@@ -35,7 +35,7 @@
 			 "~/gtd/x-projects.org"
 			 "~/gtd/skylander.org"
                          "~/gtd/tickler.org"
-			 "~/.org-brain/brains/ocp-program"))
+			 "~/org-brain/brains/ocp-program"))
 
 ; Set registers for quick loading/jumping to org files
 ; Using C-x r j <letter>
@@ -262,7 +262,7 @@
 (use-package deft)
 (setq deft-default-extension "org")
 (setq deft-extensions '("org"))
-(setq deft-directory "~")
+(setq deft-directory "~/.deft-search-roots")
 (setq deft-recursive t)
 (setq deft-use-filename-as-title nil)
 (setq deft-use-filter-string-for-filename t)

@@ -3,7 +3,7 @@
 
 ;;; Code:
 
-;; disable cl depretaion warnings
+;; disable cl deprecation warnings
 (setq byte-compile-warnings '(cl-functions))
 ;; disable package-initilize warnings
 (setq warning-suppress-log-types '((package reinitialization)))

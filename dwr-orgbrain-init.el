@@ -5,7 +5,7 @@
 ;; Set up  org-brain
 (use-package org-brain :ensure t
   :init
-  (setq org-brain-path "~/.org-brain/brains")
+  (setq org-brain-path "~/org-brain/brains")
   :config
   (bind-key "C-c b" 'org-brain-prefix-map org-mode-map)
   (setq org-id-track-globally t)
@@ -20,8 +20,10 @@
 	org-brain-file-entries-use-title nil))
 
 ;; Allows you to edit entries directly from org-brain-visualize
-(use-package poly-markdown
+(use-package polymode
   :ensure t
+  :catch t
+  :defines org-brain-poly-hostmode
   :config
   (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode))
 

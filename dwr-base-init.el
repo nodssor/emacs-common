@@ -19,6 +19,9 @@
 
 (setq inhibit-splash-screen t)
 
+;; If running in X then set the frame size to something larger (more usable) than the default
+(when window-system
+  (set-frame-size (selected-frame) 200 60))
 
 ;; Determine the specific system type. Specifcally setting up WSL specifics.
 ;; Emacs variable system-type doesn't yet have a "wsl/linux" value,
@@ -68,7 +71,9 @@
   :init (doom-modeline-mode 1))
 (use-package doom-themes :defer t)
 (use-package spacegray-theme :defer t)
-(load-theme 'doom-gruvbox t)
+
+::(load-theme 'doom-gruvbox t)
+(load-theme 'darktooth t)
 (doom-themes-visual-bell-config)
 
 (use-package ace-window)
@@ -126,9 +131,30 @@
 ;; Artist Mode stuff
 (eval-after-load "artist"
    '(define-key artist-mode-map [(down-mouse-3)] 'artist-mouse-choose-operation)
-)
+   )
+
+(use-package hydra)
+
+(defhydra hydra-zoom (global-map "<f12>" :timeout 4)
+  "Text zoom"
+  ("k" text-scale-increase "in")
+  ("j" text-scale-decrease "out")
+  ("q" nil "quit" :exit t))
 
 (use-package swiper)
+
+(use-package counsel
+  :demand t
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         ;; ("C-M-j" . counsel-switch-buffer)
+         ("C-M-l" . counsel-imenu)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history))
+  :config
+  (setq ivy-initial-inputs-alist nil)) ;; Don't start searches with ^
+
 
 (use-package ivy
   :diminish
@@ -148,6 +174,12 @@
 
 (ivy-mode 1)
 
+(use-package ivy-hydra
+  :defer t
+  :after hydra)
+
+(use-package ivy-rich
+  :init (ivy-rich-mode 1))
 
 (use-package which-key
   :init (which-key-mode)
@@ -169,3 +201,15 @@
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; Improve Emacs Help System
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . helpful-function)
+  ([remap describe-symbol] . helpful-symbol)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
