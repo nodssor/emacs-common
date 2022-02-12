@@ -28,24 +28,26 @@
   (add-hook 'org-brain-visualize-mode-hook #'org-brain-polymode))
 
 ;; Setup org-roam
-(use-package org-roam
-  :ensure t
-  :hook
-  (after-init . org-roam-mode)
-  :bind (:map org-roam-mode-map
-              (("C-c n l" . org-roam)
-               ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph)
-               ("C-c n r" . org-roam-buffer-toggle-display))
-              :map org-mode-map
-              (("C-c n i" . org-roam-insert))
-              (("C-c n I" . org-roam-insert-immediate))))
+;; (use-package org-roam
+;;   :ensure t
+;;   :hook
+;;   (after-init . org-roam-mode)
+;;   :bind (("C-c n l" . org-roam-buffer-toggle)
+;;          ("C-c n f" . org-roam-node-find)
+;;          ("C-c n g" . org-roam-graph)
+;;          ("C-c n i" . org-roam-node-insert)
+;;          ("C-c n c" . org-roam-capture)
+;;          ;; Dailies
+;;          ("C-c n j" . org-roam-dailies-capture-today))
+;;   :config
+;;   (org-roam-db-autosync-mode))
 
-;;; Tell Emacs to start org-roam-mode when Emacs starts
-(add-hook 'after-init-hook 'org-roam-mode)
-(setq org-roam-directory "~/org-roam")
-(setq org-roam-db-location "~/org-roam/org-roam.db")
-
+;; ;;; Tell Emacs to start org-roam-mode when Emacs starts
+;; (add-hook 'after-init-hook 'org-roam-mode)
+;; (setq org-roam-directory "~/org-roam")
+;; (setq org-roam-db-location "~/org-roam/org-roam.db")
+;; ;; Disable Roam V2 warning
+;; (setq org-roam-v2-ack t)
 
 ;;; Recommendation for Windows users
 (if (eq system-type 'windows-nt)

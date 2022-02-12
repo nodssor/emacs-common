@@ -72,8 +72,8 @@
 (use-package doom-themes :defer t)
 (use-package spacegray-theme :defer t)
 
-::(load-theme 'doom-gruvbox t)
-(load-theme 'darktooth t)
+(load-theme 'doom-gruvbox t)
+;;(load-theme 'darktooth t)
 (doom-themes-visual-bell-config)
 
 (use-package ace-window)
@@ -213,3 +213,7 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-command] . helpful-command)
   ([remap describe-key] . helpful-key))
+
+;; Globally enable Company Mode (Text Completion)
+(use-package company)
+(add-hook 'after-init-hook 'global-company-mode)

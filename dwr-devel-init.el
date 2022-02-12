@@ -29,9 +29,6 @@
   :ensure t
   :defer t)
 
-;; Globally enable Company Mode (Text Completion)
-(add-hook 'after-init-hook 'global-company-mode)
-
 ;; Enable Flycheck
 (use-package flycheck
   :ensure t
@@ -69,3 +66,7 @@
   :hook (python-mode . (lambda ()
 			 (require 'lsp-pyright)
 			 (lsp-deferred))))
+
+(use-package kubernetes
+  :ensure t
+  :commands (kubernetes-overview))
